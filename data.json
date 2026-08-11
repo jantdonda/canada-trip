@@ -426,7 +426,8 @@
       "lat": 46.4917,
       "lng": -80.993,
       "date": "2026-08-29",
-      "details": "Wedding at 4:00 PM"
+      "details": "Wedding at 4:00 PM",
+      "primaryView": false
     },
     {
       "id": "p6",

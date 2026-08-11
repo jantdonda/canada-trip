@@ -280,11 +280,16 @@ function renderMap(places) {
   const markers = places.map(p => {
     const m = L.marker([p.lat, p.lng]).addTo(tripMap);
     m.bindPopup(`<b>${CATEGORY_ICON[p.category] || ''} ${p.name}</b><br>${fmtDate(p.date)}<br>${p.details}<br><a href="${mapsLink(p.address)}" target="_blank" rel="noopener">Open in Google Maps</a>`);
-    return m;
+    return { marker: m, place: p };
   });
 
-  const group = L.featureGroup(markers);
-  tripMap.fitBounds(group.getBounds().pad(0.3));
+  // Default framing favours the Toronto/Niagara cluster (where most days are spent);
+  // places marked primaryView: false (e.g. the one-off Sudbury wedding) are still on
+  // the map — just outside the initial view, reachable by panning/zooming out.
+  const primary = markers.filter(({ place }) => place.primaryView !== false);
+  const framingSet = primary.length ? primary : markers;
+  const group = L.featureGroup(framingSet.map(({ marker }) => marker));
+  tripMap.fitBounds(group.getBounds().pad(0.35));
 }
 
 function setupTabs() {
