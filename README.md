@@ -39,11 +39,14 @@ Todo el contenido de la app (días, actividades, vuelos, tren, alojamiento) vive
 
 ## Pendiente de confirmar
 
-- Fecha exacta de llegada a Toronto (¿madrugada del 22 o del 23 de agosto?).
-- Números de vuelo y aerolíneas (Málaga→Lisboa, Lisboa→Toronto, Montreal→Lisboa, Lisboa→Málaga).
-- Tren Toronto→Montreal: operador, número, localizador.
-- Alojamiento en Toronto (¿mismo hotel en ambos tramos?), Sudbury y Montreal.
-- Actividades día a día — se pueden ir añadiendo cuando estén decididas.
+- Alojamiento en Montreal (7-10 sep).
+- Transporte de vuelta Sudbury → Toronto (2 sep) — de momento asumido "en coche con familia", igual que la ida; confirmar si es distinto.
+- Más actividades día a día conforme se vayan decidiendo.
+
+## Ya confirmado ✅
+
+- Los 4 vuelos (TAP Air Portugal), el tren VIA Rail Toronto→Montreal, los buses FlixBus a Cataratas del Niágara, el hotel de la primera noche en Toronto, la boda en Sudbury (29 ago) y el concierto de Rüfüs Du Sol (5 sep).
+- La pestaña **Map** añade un mapa con todos los lugares de la lista `places` en `data.json` — para añadir un sitio nuevo, agrega un objeto con `name`, `category` (`hotel` / `activity` / `transport` / `event`), `address`, `lat`, `lng`, `date` y `details`. Si no sabéis las coordenadas exactas, pedídmelas y las busco.
 
 ## Estructura del proyecto
 
