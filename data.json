@@ -74,35 +74,26 @@
         "id": "ac1",
         "city": "Toronto",
         "checkIn": "2026-08-22",
-        "checkOut": "2026-08-27",
-        "name": "TBD",
-        "address": "TBD",
+        "checkOut": "2026-08-23",
+        "name": "Hotel X Toronto, a Destination by Hyatt Hotel",
+        "address": "111 Princes' Blvd, Toronto, ON M6K 3C3",
         "confirmation": "TBD",
-        "status": "pending"
+        "status": "confirmed",
+        "notes": "One night only"
       },
       {
         "id": "ac2",
-        "city": "Sudbury",
-        "checkIn": "2026-08-27",
-        "checkOut": "2026-09-02",
-        "name": "TBD",
-        "address": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "city": "Toronto & Sudbury",
+        "checkIn": "2026-08-23",
+        "checkOut": "2026-09-07",
+        "name": "Staying with family",
+        "address": "—",
+        "confirmation": "—",
+        "status": "confirmed",
+        "notes": "Covers remaining Toronto nights and the whole Sudbury stay — no booking needed"
       },
       {
         "id": "ac3",
-        "city": "Toronto",
-        "checkIn": "2026-09-02",
-        "checkOut": "2026-09-07",
-        "name": "TBD",
-        "address": "TBD",
-        "confirmation": "TBD",
-        "status": "pending",
-        "notes": "Same hotel as first Toronto stay? confirm"
-      },
-      {
-        "id": "ac4",
         "city": "Montreal",
         "checkIn": "2026-09-07",
         "checkOut": "2026-09-10",
@@ -182,11 +173,25 @@
       "location": "Toronto",
       "activities": [
         {
-          "time": "TBD",
-          "title": "Day trip: Niagara Falls",
+          "time": "10:00",
+          "title": "FlixBus: Toronto (Union Station Bus Terminal) → Niagara Falls Canada (Rapidsview)",
+          "type": "transport",
+          "status": "confirmed",
+          "details": "Direct trip · Arrives 12:00 PM"
+        },
+        {
+          "time": "12:00",
+          "title": "Free time at Niagara Falls",
           "type": "activity",
-          "status": "pending",
-          "details": "Tour / transport / boat ride — TBD"
+          "status": "confirmed",
+          "details": "~8h45m before the return bus — plans TBD"
+        },
+        {
+          "time": "20:45",
+          "title": "FlixBus: Niagara Falls Canada (Rapidsview) → Toronto (Union Station Bus Terminal)",
+          "type": "transport",
+          "status": "confirmed",
+          "details": "Direct trip · Arrives 10:25 PM"
         }
       ],
       "notes": ""
@@ -200,8 +205,8 @@
           "time": "morning",
           "title": "Travel: Toronto → Sudbury",
           "type": "transport",
-          "status": "pending",
-          "details": "Mode of transport: TBD"
+          "status": "confirmed",
+          "details": "By car, with family"
         }
       ],
       "notes": ""
@@ -217,7 +222,15 @@
       "date": "2026-08-29",
       "weekday": "Saturday",
       "location": "Sudbury",
-      "activities": [],
+      "activities": [
+        {
+          "time": "16:00",
+          "title": "Wedding",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "Hellenic Centre, 486 Ester St, Greater Sudbury, ON P3E 5C4, Canada"
+        }
+      ],
       "notes": ""
     },
     {
@@ -251,7 +264,7 @@
           "title": "Travel: Sudbury → Toronto",
           "type": "transport",
           "status": "pending",
-          "details": "Mode of transport: TBD"
+          "details": "Likely by car with family (same as outbound) — please confirm"
         }
       ],
       "notes": ""
@@ -274,7 +287,15 @@
       "date": "2026-09-05",
       "weekday": "Saturday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "19:30",
+          "title": "Concert: Rüfüs Du Sol",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1"
+        }
+      ],
       "notes": ""
     },
     {
@@ -349,6 +370,68 @@
         }
       ],
       "notes": "Long layover in Lisbon (~10h, 10:30 AM–8:40 PM) — worth planning something for the day."
+    }
+  ],
+  "places": [
+    {
+      "id": "p1",
+      "name": "Hotel X Toronto",
+      "category": "hotel",
+      "address": "111 Princes' Blvd, Toronto, ON M6K 3C3",
+      "lat": 43.6357,
+      "lng": -79.4183,
+      "date": "2026-08-22",
+      "details": "Hotel — night of Aug 22"
+    },
+    {
+      "id": "p2",
+      "name": "Queen's Quay Terminal (Dinner Cruise)",
+      "category": "activity",
+      "address": "207 Queens Quay West, Toronto, ON M5J 1A7",
+      "lat": 43.6389,
+      "lng": -79.3805,
+      "date": "2026-08-24",
+      "details": "City Cruises — Premier Dinner Cruise, boarding 6:00 PM"
+    },
+    {
+      "id": "p3",
+      "name": "Toronto Union Station Bus Terminal",
+      "category": "transport",
+      "address": "81 Bay St, Toronto, ON",
+      "lat": 43.6453,
+      "lng": -79.3806,
+      "date": "2026-08-26",
+      "details": "FlixBus to/from Niagara Falls"
+    },
+    {
+      "id": "p4",
+      "name": "Niagara Falls (Rapidsview)",
+      "category": "activity",
+      "address": "Rapidsview Dr, Niagara Falls, ON",
+      "lat": 43.0947,
+      "lng": -79.0942,
+      "date": "2026-08-26",
+      "details": "FlixBus stop — free time at the falls"
+    },
+    {
+      "id": "p5",
+      "name": "Hellenic Centre (Wedding)",
+      "category": "event",
+      "address": "486 Ester St, Greater Sudbury, ON P3E 5C4",
+      "lat": 46.4917,
+      "lng": -80.993,
+      "date": "2026-08-29",
+      "details": "Wedding at 4:00 PM"
+    },
+    {
+      "id": "p6",
+      "name": "Rogers Centre (Rüfüs Du Sol)",
+      "category": "activity",
+      "address": "1 Blue Jays Way, Toronto, ON M5V 1J1",
+      "lat": 43.6414,
+      "lng": -79.3894,
+      "date": "2026-09-05",
+      "details": "Concert, 7:30 PM"
     }
   ]
 }

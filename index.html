@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canada Trip 2026</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 </head>
 <body>
   <header class="hero">
@@ -27,6 +28,7 @@
   <nav class="tabs" id="tabs">
     <button class="tab-btn active" data-tab="itinerary">Itinerary</button>
     <button class="tab-btn" data-tab="documents">Documents</button>
+    <button class="tab-btn" data-tab="map">Map</button>
   </nav>
 
   <main>
@@ -52,12 +54,18 @@
         <div id="travel-auth-list" class="card-grid"></div>
       </div>
     </section>
+
+    <section id="map" class="tab-panel">
+      <div id="trip-map"></div>
+      <div id="places-list" class="card-grid places-list"></div>
+    </section>
   </main>
 
   <footer>
     <p>Edit this trip anytime by updating <code>data.json</code> on GitHub — changes go live automatically.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+let tripMap = null;
+
 async function loadTrip() {
   const res = await fetch('data.json', { cache: 'no-store' });
   const data = await res.json();
@@ -7,6 +9,7 @@ async function loadTrip() {
   renderTrains(data.documents.trains);
   renderAccommodations(data.documents.accommodations);
   renderTravelAuth(data.documents.travelAuth || []);
+  renderMap(data.places || []);
 }
 
 function fmtDate(iso) {
@@ -132,6 +135,50 @@ function renderTravelAuth(items) {
   `).join('');
 }
 
+const CATEGORY_ICON = { hotel: '🏨', activity: '📍', transport: '🚌', event: '🎉' };
+
+function mapsLink(address) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+function renderMap(places) {
+  const listEl = document.getElementById('places-list');
+  if (!places.length) {
+    listEl.innerHTML = `<p class="no-activities">No places added yet.</p>`;
+    return;
+  }
+
+  listEl.innerHTML = places.map(p => `
+    <div class="doc-card">
+      <div class="doc-card-head">
+        <span class="doc-title">${CATEGORY_ICON[p.category] || '📍'} ${p.name}</span>
+      </div>
+      <p class="doc-meta">${fmtDate(p.date)} — ${p.details}</p>
+      <p class="doc-meta">${p.address}</p>
+      <p class="doc-meta"><a href="${mapsLink(p.address)}" target="_blank" rel="noopener">Open in Google Maps ↗</a></p>
+    </div>
+  `).join('');
+
+  if (typeof L === 'undefined') return;
+
+  if (!tripMap) {
+    tripMap = L.map('trip-map');
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(tripMap);
+  }
+
+  const markers = places.map(p => {
+    const m = L.marker([p.lat, p.lng]).addTo(tripMap);
+    m.bindPopup(`<b>${CATEGORY_ICON[p.category] || ''} ${p.name}</b><br>${fmtDate(p.date)}<br>${p.details}<br><a href="${mapsLink(p.address)}" target="_blank" rel="noopener">Open in Google Maps</a>`);
+    return m;
+  });
+
+  const group = L.featureGroup(markers);
+  tripMap.fitBounds(group.getBounds().pad(0.3));
+}
+
 function setupTabs() {
   const buttons = document.querySelectorAll('.tab-btn');
   buttons.forEach(btn => {
@@ -140,6 +187,9 @@ function setupTabs() {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(btn.dataset.tab).classList.add('active');
+      if (btn.dataset.tab === 'map' && tripMap) {
+        setTimeout(() => tripMap.invalidateSize(), 50);
+      }
     });
   });
 }
