@@ -7,6 +7,7 @@ async function loadTrip() {
   const data = await res.json();
   renderHeader(data.trip);
   allDays = data.days;
+  renderNextUp(allDays, data.trip);
   renderCityFilters(allDays);
   renderDays(allDays);
   renderFlights(data.documents.flights);
@@ -35,6 +36,52 @@ function renderHeader(trip) {
   document.getElementById('trip-dates').textContent =
     `${fmtDate(trip.startDate)} – ${fmtDate(trip.endDate)}`;
   document.title = trip.name;
+}
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function parseDateTime(dateStr, timeStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const match = /^(\d{1,2}):(\d{2})$/.exec(timeStr || '');
+  if (match) return new Date(y, m - 1, d, Number(match[1]), Number(match[2]));
+  return new Date(y, m - 1, d, 0, 0);
+}
+
+function renderNextUp(days, trip) {
+  const el = document.getElementById('next-up');
+  const now = new Date();
+  const start = new Date(trip.startDate + 'T00:00:00');
+  const end = new Date(trip.endDate + 'T23:59:59');
+
+  if (now < start) {
+    const daysLeft = Math.ceil((start - now) / 86400000);
+    el.innerHTML = `<div class="next-up-card"><p class="next-up-eyebrow">🍁 Trip starts in ${daysLeft} day${daysLeft === 1 ? '' : 's'}</p></div>`;
+    return;
+  }
+  if (now > end) {
+    el.innerHTML = `<div class="next-up-card"><p class="next-up-eyebrow">✅ Trip completed — hope it was amazing!</p></div>`;
+    return;
+  }
+
+  const events = [];
+  days.forEach(day => {
+    day.activities.forEach(a => {
+      events.push({ date: day.date, time: a.time, title: a.title, location: day.location, dt: parseDateTime(day.date, a.time) });
+    });
+  });
+  events.sort((a, b) => a.dt - b.dt);
+  const next = events.find(e => e.dt >= now);
+
+  el.innerHTML = next ? `
+    <div class="next-up-card">
+      <p class="next-up-eyebrow">Next up</p>
+      <p class="next-up-title">${next.title}</p>
+      <p class="next-up-meta">${fmtDate(next.date)}${next.time && next.time !== 'TBD' ? ' · ' + next.time : ''} — ${next.location}</p>
+    </div>
+  ` : `<div class="next-up-card"><p class="next-up-eyebrow">🍁 You're on the trip — enjoy!</p></div>`;
 }
 
 function citySlug(location) {
@@ -68,7 +115,9 @@ function renderDays(days) {
     list.innerHTML = `<p class="no-activities">No days match this filter.</p>`;
     return;
   }
+  const today = todayISO();
   list.innerHTML = days.map(day => {
+    const isToday = day.date === today;
     const activitiesHtml = day.activities.length
       ? day.activities.map(a => `
           <div class="activity">
@@ -86,11 +135,12 @@ function renderDays(days) {
       : '';
 
     return `
-      <article class="day-card">
+      <article class="day-card${isToday ? ' is-today' : ''}">
         <div class="day-card-head">
           <div>
             <span class="day-date">${fmtDate(day.date)}</span>
             <span class="day-weekday"> · ${day.weekday}</span>
+            ${isToday ? '<span class="today-badge">TODAY</span>' : ''}
           </div>
           <span class="day-location loc-${citySlug(day.location)}">${day.location}</span>
         </div>
@@ -101,36 +151,63 @@ function renderDays(days) {
   }).join('');
 }
 
+function attachQR(id, text) {
+  const el = document.getElementById('qr-' + id);
+  if (!el || typeof QRCode === 'undefined') return;
+  el.innerHTML = '';
+  new QRCode(el, { text, width: 72, height: 72, colorDark: '#2a1a17', colorLight: '#ffffff' });
+}
+
 function renderFlights(flights) {
   const el = document.getElementById('flights-list');
   el.innerHTML = flights.map(f => `
     <div class="doc-card">
-      <div class="doc-card-head">
-        <span class="doc-title">${f.route}</span>
-        ${statusBadge(f.status)}
+      <div class="doc-card-body">
+        <div>
+          <div class="doc-card-head">
+            <span class="doc-title">${f.route}</span>
+            ${statusBadge(f.status)}
+          </div>
+          <p class="doc-meta"><b>Date:</b> ${fmtDate(f.date)}</p>
+          <p class="doc-meta"><b>Depart:</b> ${f.departTime} &nbsp; <b>Arrive:</b> ${f.arriveTime}</p>
+          <p class="doc-meta"><b>Airline:</b> ${f.airline} &nbsp; <b>Flight #:</b> ${f.flightNumber}</p>
+          <p class="doc-meta"><b>Confirmation:</b> ${f.confirmation}</p>
+        </div>
+        ${f.confirmation && f.confirmation !== 'TBD' ? `<div class="qr" id="qr-${f.id}"></div>` : ''}
       </div>
-      <p class="doc-meta"><b>Date:</b> ${fmtDate(f.date)}</p>
-      <p class="doc-meta"><b>Depart:</b> ${f.departTime} &nbsp; <b>Arrive:</b> ${f.arriveTime}</p>
-      <p class="doc-meta"><b>Airline:</b> ${f.airline} &nbsp; <b>Flight #:</b> ${f.flightNumber}</p>
-      <p class="doc-meta"><b>Confirmation:</b> ${f.confirmation}</p>
     </div>
   `).join('');
+  flights.forEach(f => {
+    if (f.confirmation && f.confirmation !== 'TBD') {
+      attachQR(f.id, `${f.route}\n${fmtDate(f.date)} ${f.departTime}\nFlight ${f.flightNumber}\nConfirmation: ${f.confirmation}`);
+    }
+  });
 }
 
 function renderTrains(trains) {
   const el = document.getElementById('trains-list');
   el.innerHTML = trains.map(t => `
     <div class="doc-card">
-      <div class="doc-card-head">
-        <span class="doc-title">${t.route}</span>
-        ${statusBadge(t.status)}
+      <div class="doc-card-body">
+        <div>
+          <div class="doc-card-head">
+            <span class="doc-title">${t.route}</span>
+            ${statusBadge(t.status)}
+          </div>
+          <p class="doc-meta"><b>Date:</b> ${fmtDate(t.date)}</p>
+          <p class="doc-meta"><b>Depart:</b> ${t.departTime} &nbsp; <b>Arrive:</b> ${t.arriveTime}</p>
+          <p class="doc-meta"><b>Operator:</b> ${t.operator} &nbsp; <b>Train #:</b> ${t.trainNumber}</p>
+          <p class="doc-meta"><b>Confirmation:</b> ${t.confirmation}</p>
+        </div>
+        ${t.confirmation && t.confirmation !== 'TBD' ? `<div class="qr" id="qr-${t.id}"></div>` : ''}
       </div>
-      <p class="doc-meta"><b>Date:</b> ${fmtDate(t.date)}</p>
-      <p class="doc-meta"><b>Depart:</b> ${t.departTime} &nbsp; <b>Arrive:</b> ${t.arriveTime}</p>
-      <p class="doc-meta"><b>Operator:</b> ${t.operator} &nbsp; <b>Train #:</b> ${t.trainNumber}</p>
-      <p class="doc-meta"><b>Confirmation:</b> ${t.confirmation}</p>
     </div>
   `).join('');
+  trains.forEach(t => {
+    if (t.confirmation && t.confirmation !== 'TBD') {
+      attachQR(t.id, `${t.route}\n${fmtDate(t.date)} ${t.departTime}\nTrain ${t.trainNumber}\nConfirmation: ${t.confirmation}`);
+    }
+  });
 }
 
 function renderAccommodations(accs) {
@@ -232,3 +309,9 @@ loadTrip().catch(err => {
   document.getElementById('day-list').innerHTML =
     `<p class="no-activities">Could not load data.json: ${err.message}</p>`;
 });
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}

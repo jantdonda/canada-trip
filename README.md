@@ -43,6 +43,12 @@ Todo el contenido de la app (días, actividades, vuelos, tren, alojamiento) vive
 - Transporte de vuelta Sudbury → Toronto (2 sep) — de momento asumido "en coche con familia", igual que la ida; confirmar si es distinto.
 - Más actividades día a día conforme se vayan decidiendo.
 
+## Funciones de la app
+
+- **Funciona sin conexión**: la primera vez que la abráis con internet, queda instalada como app (podéis "Añadir a pantalla de inicio" desde el navegador) y a partir de ahí carga aunque no haya wifi/datos. Los mapas de la pestaña Map necesitan conexión para las teselas, el resto no.
+- **"Next up"**: arriba del todo veréis cuántos días faltan para el viaje, o la próxima actividad/vuelo si ya estáis de viaje. El día de hoy también se resalta en el itinerario.
+- **Códigos QR** en las tarjetas de vuelos y tren confirmados, con la ruta, fecha, hora y localizador — útiles para consultarlos rápido sin buscar en la app.
+
 ## Ya confirmado ✅
 
 - Los 4 vuelos (TAP Air Portugal), el tren VIA Rail Toronto→Montreal, los buses FlixBus a Cataratas del Niágara, el hotel de la primera noche en Toronto, la boda en Sudbury (29 ago) y el concierto de Rüfüs Du Sol (5 sep).
