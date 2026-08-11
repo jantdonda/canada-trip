@@ -9,7 +9,7 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#d52b1e">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 </head>
 <body>
@@ -39,6 +39,15 @@
   <main>
     <section id="itinerary" class="tab-panel active">
       <div id="next-up"></div>
+      <div class="edit-toolbar">
+        <button type="button" id="edit-toggle-btn" class="toolbar-btn primary">✏️ Edit itinerary</button>
+        <button type="button" id="share-btn" class="toolbar-btn">🔗 Share changes</button>
+        <button type="button" id="copy-claude-btn" class="toolbar-btn">📋 Copy for Claude</button>
+      </div>
+      <div id="local-changes-banner" class="local-changes-banner">
+        <span>📱 You have local changes on this device, not yet published for everyone.</span>
+        <button type="button" id="discard-btn">Discard</button>
+      </div>
       <div id="city-filters" class="filter-row"></div>
       <div id="day-list" class="day-list"></div>
     </section>
@@ -74,6 +83,6 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

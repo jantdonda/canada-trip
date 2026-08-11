@@ -190,6 +190,148 @@ main {
   box-shadow: 0 4px 16px rgba(213, 43, 30, 0.16);
 }
 
+.edit-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.toolbar-btn {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.toolbar-btn.primary {
+  border-color: var(--brand);
+  color: var(--brand-dark);
+}
+
+.toolbar-btn.primary.active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.local-changes-banner {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--pending-bg);
+  color: var(--pending);
+  border: 1px solid #f0d3ab;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.local-changes-banner button {
+  border: none;
+  background: var(--pending);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.activity-edit {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px dashed var(--border);
+  align-items: flex-start;
+}
+
+.activity-edit:first-of-type { border-top: none; }
+
+.activity-edit input[type="text"],
+.activity-edit .edit-notes {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.activity-edit .edit-time {
+  flex: 0 0 64px;
+  padding: 7px 6px;
+}
+
+.activity-edit .activity-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-row-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.edit-row-controls select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.edit-row-controls .edit-day { flex: 1; min-width: 120px; }
+
+.edit-delete {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 5px 9px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.add-activity-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border: 1.5px dashed var(--border);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-activity-btn:hover { border-color: var(--brand); color: var(--brand-dark); }
+
+textarea.edit-notes {
+  margin-top: 8px;
+  min-height: 44px;
+  resize: vertical;
+}
+
 .day-list {
   display: flex;
   flex-direction: column;

@@ -1,9 +1,9 @@
-const CACHE_NAME = 'canada-trip-v8';
+const CACHE_NAME = 'canada-trip-v9';
 const PRECACHE = [
   './',
   './index.html',
-  './style.css?v=8',
-  './app.js?v=8',
+  './style.css?v=9',
+  './app.js?v=9',
   './data.json',
   './manifest.json',
   './favicon.svg',
