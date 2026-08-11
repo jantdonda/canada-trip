@@ -16,64 +16,64 @@
         "route": "Málaga (AGP) → Lisbon (LIS)",
         "date": "2026-08-22",
         "departTime": "07:00",
-        "arriveTime": "TBD",
-        "airline": "TBD",
-        "flightNumber": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "arriveTime": "07:20",
+        "airline": "TAP Air Portugal",
+        "flightNumber": "TP1139",
+        "confirmation": "Y966FP",
+        "status": "confirmed"
       },
       {
         "id": "fl2",
         "route": "Lisbon (LIS) → Toronto (YYZ)",
         "date": "2026-08-22",
-        "departTime": "TBD",
-        "arriveTime": "02:30 (local, date to confirm)",
-        "airline": "TBD",
-        "flightNumber": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "departTime": "10:40",
+        "arriveTime": "14:00 (local)",
+        "airline": "TAP Air Portugal",
+        "flightNumber": "TP257",
+        "confirmation": "Y966FP",
+        "status": "confirmed"
       },
       {
         "id": "fl3",
         "route": "Montreal (YUL) → Lisbon (LIS)",
         "date": "2026-09-10",
-        "departTime": "23:00",
-        "arriveTime": "TBD",
-        "airline": "TBD",
-        "flightNumber": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "departTime": "22:45",
+        "arriveTime": "10:30 (Sep 11)",
+        "airline": "TAP Air Portugal",
+        "flightNumber": "TP254",
+        "confirmation": "Y966FP",
+        "status": "confirmed"
       },
       {
         "id": "fl4",
         "route": "Lisbon (LIS) → Málaga (AGP)",
         "date": "2026-09-11",
-        "departTime": "TBD",
-        "arriveTime": "TBD",
-        "airline": "TBD",
-        "flightNumber": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "departTime": "20:40",
+        "arriveTime": "22:55",
+        "airline": "TAP Air Portugal",
+        "flightNumber": "TP1138",
+        "confirmation": "Y966FP",
+        "status": "confirmed"
       }
     ],
     "trains": [
       {
         "id": "tr1",
-        "route": "Toronto → Montreal",
+        "route": "Toronto (TRTO) → Montreal (MTRL)",
         "date": "2026-09-07",
-        "departTime": "07:30",
-        "arriveTime": "TBD",
-        "operator": "TBD (likely VIA Rail)",
-        "trainNumber": "TBD",
-        "confirmation": "TBD",
-        "status": "pending"
+        "departTime": "06:32",
+        "arriveTime": "11:50",
+        "operator": "VIA Rail",
+        "trainNumber": "Route 60",
+        "confirmation": "8SOM3S",
+        "status": "confirmed"
       }
     ],
     "accommodations": [
       {
         "id": "ac1",
         "city": "Toronto",
-        "checkIn": "2026-08-22/23 (TBD)",
+        "checkIn": "2026-08-22",
         "checkOut": "2026-08-27",
         "name": "TBD",
         "address": "TBD",
@@ -111,27 +111,38 @@
         "confirmation": "TBD",
         "status": "pending"
       }
+    ],
+    "travelAuth": [
+      {
+        "id": "eta1",
+        "traveler": "José Antonio",
+        "type": "eTA (Canada)",
+        "status": "confirmed",
+        "label": "Approved",
+        "expiration": "2031-05-27",
+        "note": "Passport & eTA numbers kept off this public site for privacy — see the confirmation email."
+      }
     ]
   },
   "days": [
     {
       "date": "2026-08-22",
       "weekday": "Saturday",
-      "location": "In transit",
+      "location": "Toronto",
       "activities": [
         {
           "time": "07:00",
           "title": "Flight: Málaga (AGP) → Lisbon (LIS)",
           "type": "flight",
-          "status": "pending",
-          "details": "Airline & flight number: TBD"
+          "status": "confirmed",
+          "details": "TAP Air Portugal TP1139 · Arrives 7:20 AM · Confirmation Y966FP"
         },
         {
-          "time": "TBD",
+          "time": "10:40",
           "title": "Flight: Lisbon (LIS) → Toronto (YYZ)",
           "type": "flight",
-          "status": "pending",
-          "details": "Arrival ~2:30 AM local time (date to confirm — may land Aug 23). Airline & flight number: TBD"
+          "status": "confirmed",
+          "details": "TAP Air Portugal TP257 · Arrives 2:00 PM local time · Confirmation Y966FP"
         }
       ],
       "notes": ""
@@ -147,7 +158,15 @@
       "date": "2026-08-24",
       "weekday": "Monday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "18:00",
+          "title": "City Cruises — Premier Dinner Cruise (boarding)",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "Vessel: Toronto Odyssey · Cruise departs 7:00 PM · Queen's Quay Terminal, 207 Queen's Quay West, Toronto, ON M5J 1A7 · Confirmation 79883850"
+        }
+      ],
       "notes": ""
     },
     {
@@ -225,7 +244,7 @@
     {
       "date": "2026-09-02",
       "weekday": "Wednesday",
-      "location": "Sudbury",
+      "location": "Toronto",
       "activities": [
         {
           "time": "TBD",
@@ -271,11 +290,11 @@
       "location": "Toronto",
       "activities": [
         {
-          "time": "07:30",
-          "title": "Train: Toronto → Montreal",
+          "time": "06:32",
+          "title": "VIA Rail: Toronto (TRTO) → Montreal (MTRL)",
           "type": "train",
-          "status": "pending",
-          "details": "Operator & train number: TBD (likely VIA Rail)"
+          "status": "confirmed",
+          "details": "Route 60 · Arrives 11:50 AM (5h18m) · Reservation 8SOM3S"
         }
       ],
       "notes": ""
@@ -300,11 +319,11 @@
       "location": "Montreal",
       "activities": [
         {
-          "time": "23:00",
+          "time": "22:45",
           "title": "Flight: Montreal (YUL) → Lisbon (LIS)",
           "type": "flight",
-          "status": "pending",
-          "details": "Airline & flight number: TBD"
+          "status": "confirmed",
+          "details": "TAP Air Portugal TP254 · Arrives 10:30 AM next day (6h45m) · Confirmation Y966FP"
         }
       ],
       "notes": ""
@@ -312,17 +331,24 @@
     {
       "date": "2026-09-11",
       "weekday": "Friday",
-      "location": "Montreal",
+      "location": "Montreal -> home",
       "activities": [
         {
-          "time": "TBD",
+          "time": "10:30",
+          "title": "Arrive Lisbon (LIS)",
+          "type": "flight",
+          "status": "confirmed",
+          "details": "From overnight Montreal flight TP254"
+        },
+        {
+          "time": "20:40",
           "title": "Flight: Lisbon (LIS) → Málaga (AGP)",
           "type": "flight",
-          "status": "pending",
-          "details": "Airline & flight number: TBD"
+          "status": "confirmed",
+          "details": "TAP Air Portugal TP1138 · Arrives 10:55 PM · Confirmation Y966FP"
         }
       ],
-      "notes": ""
+      "notes": "Long layover in Lisbon (~10h, 10:30 AM–8:40 PM) — worth planning something for the day."
     }
   ]
 }

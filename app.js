@@ -6,6 +6,7 @@ async function loadTrip() {
   renderFlights(data.documents.flights);
   renderTrains(data.documents.trains);
   renderAccommodations(data.documents.accommodations);
+  renderTravelAuth(data.documents.travelAuth || []);
 }
 
 function fmtDate(iso) {
@@ -108,6 +109,25 @@ function renderAccommodations(accs) {
       <p class="doc-meta"><b>Address:</b> ${a.address}</p>
       <p class="doc-meta"><b>Confirmation:</b> ${a.confirmation}</p>
       ${a.notes ? `<p class="doc-meta"><b>Note:</b> ${a.notes}</p>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderTravelAuth(items) {
+  const el = document.getElementById('travel-auth-list');
+  if (!items.length) {
+    el.innerHTML = `<p class="no-activities">No travel authorization info yet.</p>`;
+    return;
+  }
+  el.innerHTML = items.map(a => `
+    <div class="doc-card">
+      <div class="doc-card-head">
+        <span class="doc-title">${a.traveler} — ${a.type}</span>
+        ${statusBadge(a.status)}
+      </div>
+      <p class="doc-meta"><b>Status:</b> ${a.label}</p>
+      <p class="doc-meta"><b>Expiration:</b> ${a.expiration}</p>
+      ${a.note ? `<p class="doc-meta"><b>Note:</b> ${a.note}</p>` : ''}
     </div>
   `).join('');
 }
