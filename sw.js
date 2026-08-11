@@ -1,18 +1,22 @@
-const CACHE_NAME = 'canada-trip-v5';
+const CACHE_NAME = 'canada-trip-v6';
 const PRECACHE = [
   './',
   './index.html',
-  './style.css?v=5',
-  './app.js?v=5',
+  './style.css?v=6',
+  './app.js?v=6',
   './data.json',
   './manifest.json',
   './favicon.svg',
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png',
+  './qr/fl1.png',
+  './qr/fl2.png',
+  './qr/fl3.png',
+  './qr/fl4.png',
+  './qr/tr1.png',
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'
+  'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'
 ];
 
 self.addEventListener('install', event => {

@@ -20,7 +20,8 @@
         "airline": "TAP Air Portugal",
         "flightNumber": "TP1139",
         "confirmation": "Y966FP",
-        "status": "confirmed"
+        "status": "confirmed",
+        "qrImage": "qr/fl1.png"
       },
       {
         "id": "fl2",
@@ -31,7 +32,8 @@
         "airline": "TAP Air Portugal",
         "flightNumber": "TP257",
         "confirmation": "Y966FP",
-        "status": "confirmed"
+        "status": "confirmed",
+        "qrImage": "qr/fl2.png"
       },
       {
         "id": "fl3",
@@ -42,7 +44,8 @@
         "airline": "TAP Air Portugal",
         "flightNumber": "TP254",
         "confirmation": "Y966FP",
-        "status": "confirmed"
+        "status": "confirmed",
+        "qrImage": "qr/fl3.png"
       },
       {
         "id": "fl4",
@@ -53,7 +56,8 @@
         "airline": "TAP Air Portugal",
         "flightNumber": "TP1138",
         "confirmation": "Y966FP",
-        "status": "confirmed"
+        "status": "confirmed",
+        "qrImage": "qr/fl4.png"
       }
     ],
     "trains": [
@@ -66,7 +70,8 @@
         "operator": "VIA Rail",
         "trainNumber": "Route 60",
         "confirmation": "8SOM3S",
-        "status": "confirmed"
+        "status": "confirmed",
+        "qrImage": "qr/tr1.png"
       }
     ],
     "accommodations": [

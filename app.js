@@ -163,26 +163,8 @@ function renderDays(days) {
   }).join('');
 }
 
-function attachQR(id, text) {
-  const el = document.getElementById('qr-' + id);
-  if (!el || typeof QRCode === 'undefined') return;
-  el.innerHTML = '';
-  try {
-    // typeNumber: 0 lets the library auto-pick a QR version that fits the text
-    // (a fixed default type + high error-correction level can overflow on longer strings).
-    new QRCode(el, {
-      text,
-      width: 72,
-      height: 72,
-      colorDark: '#2a1a17',
-      colorLight: '#ffffff',
-      typeNumber: 0,
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  } catch (err) {
-    console.error('QR generation failed for', id, err);
-    el.remove();
-  }
+function qrImg(item) {
+  return item.qrImage ? `<div class="qr"><img src="${item.qrImage}" width="72" height="72" alt="QR code with booking details" loading="lazy"></div>` : '';
 }
 
 function renderFlights(flights) {
@@ -200,15 +182,10 @@ function renderFlights(flights) {
           <p class="doc-meta"><b>Airline:</b> ${f.airline} &nbsp; <b>Flight #:</b> ${f.flightNumber}</p>
           <p class="doc-meta"><b>Confirmation:</b> ${f.confirmation}</p>
         </div>
-        ${f.confirmation && f.confirmation !== 'TBD' ? `<div class="qr" id="qr-${f.id}"></div>` : ''}
+        ${qrImg(f)}
       </div>
     </div>
   `).join('');
-  flights.forEach(f => {
-    if (f.confirmation && f.confirmation !== 'TBD') {
-      attachQR(f.id, `${f.route}\n${fmtDate(f.date)} ${f.departTime}\nFlight ${f.flightNumber}\nConfirmation: ${f.confirmation}`);
-    }
-  });
 }
 
 function renderTrains(trains) {
@@ -226,17 +203,11 @@ function renderTrains(trains) {
           <p class="doc-meta"><b>Operator:</b> ${t.operator} &nbsp; <b>Train #:</b> ${t.trainNumber}</p>
           <p class="doc-meta"><b>Confirmation:</b> ${t.confirmation}</p>
         </div>
-        ${t.confirmation && t.confirmation !== 'TBD' ? `<div class="qr" id="qr-${t.id}"></div>` : ''}
+        ${qrImg(t)}
       </div>
     </div>
   `).join('');
-  trains.forEach(t => {
-    if (t.confirmation && t.confirmation !== 'TBD') {
-      attachQR(t.id, `${t.route}\n${fmtDate(t.date)} ${t.departTime}\nTrain ${t.trainNumber}\nConfirmation: ${t.confirmation}`);
-    }
-  });
 }
-
 function renderAccommodations(accs) {
   const el = document.getElementById('accommodations-list');
   el.innerHTML = accs.map(a => `
