@@ -2,19 +2,31 @@ let tripMap = null;
 let allDays = [];
 let activeCity = 'All';
 
+function safe(fn, label) {
+  try { fn(); } catch (err) { console.error('Render failed:', label, err); }
+}
+
 async function loadTrip() {
-  const res = await fetch('data.json', { cache: 'no-store' });
-  const data = await res.json();
-  renderHeader(data.trip);
+  let data;
+  try {
+    const res = await fetch('data.json', { cache: 'no-store' });
+    data = await res.json();
+  } catch (err) {
+    document.getElementById('day-list').innerHTML =
+      `<p class="no-activities">Could not load data.json: ${err.message}</p>`;
+    return;
+  }
+
+  safe(() => renderHeader(data.trip), 'header');
   allDays = data.days;
-  renderNextUp(allDays, data.trip);
-  renderCityFilters(allDays);
-  renderDays(allDays);
-  renderFlights(data.documents.flights);
-  renderTrains(data.documents.trains);
-  renderAccommodations(data.documents.accommodations);
-  renderTravelAuth(data.documents.travelAuth || []);
-  renderMap(data.places || []);
+  safe(() => renderNextUp(allDays, data.trip), 'next-up');
+  safe(() => renderCityFilters(allDays), 'city-filters');
+  safe(() => renderDays(allDays), 'days');
+  safe(() => renderFlights(data.documents.flights), 'flights');
+  safe(() => renderTrains(data.documents.trains), 'trains');
+  safe(() => renderAccommodations(data.documents.accommodations), 'accommodations');
+  safe(() => renderTravelAuth(data.documents.travelAuth || []), 'travel-auth');
+  safe(() => renderMap(data.places || []), 'map');
 }
 
 function fmtDate(iso) {
@@ -155,7 +167,22 @@ function attachQR(id, text) {
   const el = document.getElementById('qr-' + id);
   if (!el || typeof QRCode === 'undefined') return;
   el.innerHTML = '';
-  new QRCode(el, { text, width: 72, height: 72, colorDark: '#2a1a17', colorLight: '#ffffff' });
+  try {
+    // typeNumber: 0 lets the library auto-pick a QR version that fits the text
+    // (a fixed default type + high error-correction level can overflow on longer strings).
+    new QRCode(el, {
+      text,
+      width: 72,
+      height: 72,
+      colorDark: '#2a1a17',
+      colorLight: '#ffffff',
+      typeNumber: 0,
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  } catch (err) {
+    console.error('QR generation failed for', id, err);
+    el.remove();
+  }
 }
 
 function renderFlights(flights) {
@@ -305,10 +332,7 @@ function setupTabs() {
 }
 
 setupTabs();
-loadTrip().catch(err => {
-  document.getElementById('day-list').innerHTML =
-    `<p class="no-activities">Could not load data.json: ${err.message}</p>`;
-});
+loadTrip().catch(err => console.error('Unexpected error loading trip:', err));
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
