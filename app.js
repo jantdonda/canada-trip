@@ -1,10 +1,14 @@
 let tripMap = null;
+let allDays = [];
+let activeCity = 'All';
 
 async function loadTrip() {
   const res = await fetch('data.json', { cache: 'no-store' });
   const data = await res.json();
   renderHeader(data.trip);
-  renderDays(data.days);
+  allDays = data.days;
+  renderCityFilters(allDays);
+  renderDays(allDays);
   renderFlights(data.documents.flights);
   renderTrains(data.documents.trains);
   renderAccommodations(data.documents.accommodations);
@@ -33,8 +37,37 @@ function renderHeader(trip) {
   document.title = trip.name;
 }
 
+function citySlug(location) {
+  return location.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function renderCityFilters(days) {
+  const cities = [];
+  days.forEach(d => { if (!cities.includes(d.location)) cities.push(d.location); });
+
+  const el = document.getElementById('city-filters');
+  const chips = ['All', ...cities];
+  el.innerHTML = chips.map(c => `
+    <button class="filter-chip loc-${c === 'All' ? 'all' : citySlug(c)} ${c === activeCity ? 'active' : ''}" data-city="${c}">${c}</button>
+  `).join('');
+
+  el.querySelectorAll('.filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCity = btn.dataset.city;
+      el.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filtered = activeCity === 'All' ? allDays : allDays.filter(d => d.location === activeCity);
+      renderDays(filtered);
+    });
+  });
+}
+
 function renderDays(days) {
   const list = document.getElementById('day-list');
+  if (!days.length) {
+    list.innerHTML = `<p class="no-activities">No days match this filter.</p>`;
+    return;
+  }
   list.innerHTML = days.map(day => {
     const activitiesHtml = day.activities.length
       ? day.activities.map(a => `
@@ -59,7 +92,7 @@ function renderDays(days) {
             <span class="day-date">${fmtDate(day.date)}</span>
             <span class="day-weekday"> · ${day.weekday}</span>
           </div>
-          <span class="day-location">${day.location}</span>
+          <span class="day-location loc-${citySlug(day.location)}">${day.location}</span>
         </div>
         ${activitiesHtml}
         ${notesHtml}

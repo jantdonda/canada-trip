@@ -172,10 +172,69 @@ main {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--brand-dark);
-  background: #fbe7e5;
   border-radius: 999px;
   padding: 4px 10px;
+  color: var(--brand-dark);
+  background: #fbe7e5;
+}
+
+/* City colour system — Canadian-inspired palette */
+.loc-toronto { --loc-c: #a3140a; --loc-bg: #fbe7e5; }          /* maple red */
+.loc-niagara-falls { --loc-c: #0b6e83; --loc-bg: #e1f2f5; }    /* falls blue */
+.loc-sudbury { --loc-c: #35662a; --loc-bg: #e6f0e0; }          /* forest green */
+.loc-montreal { --loc-c: #97640a; --loc-bg: #fbedd3; }         /* maple gold */
+.loc-travel-day { --loc-c: #4b4544; --loc-bg: #ece7e5; }       /* travel grey */
+
+.day-location.loc-toronto,
+.day-location.loc-niagara-falls,
+.day-location.loc-sudbury,
+.day-location.loc-montreal,
+.day-location.loc-travel-day {
+  color: var(--loc-c);
+  background: var(--loc-bg);
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-chip {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filter-chip.loc-all { border-color: var(--ink-soft); color: var(--ink-soft); }
+.filter-chip.loc-all.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.filter-chip.loc-toronto,
+.filter-chip.loc-niagara-falls,
+.filter-chip.loc-sudbury,
+.filter-chip.loc-montreal,
+.filter-chip.loc-travel-day {
+  border-color: var(--loc-c);
+  color: var(--loc-c);
+}
+
+.filter-chip.loc-toronto.active,
+.filter-chip.loc-niagara-falls.active,
+.filter-chip.loc-sudbury.active,
+.filter-chip.loc-montreal.active,
+.filter-chip.loc-travel-day.active {
+  background: var(--loc-c);
+  border-color: var(--loc-c);
+  color: #fff;
 }
 
 .activity {
