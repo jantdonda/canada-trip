@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canada Trip 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="skyline" aria-hidden="true">
+      <svg viewBox="0 0 1200 160" preserveAspectRatio="none">
+        <path fill="rgba(255,255,255,0.16)" d="M0,160 L0,120 L30,120 L30,95 L55,95 L55,120 L90,120 L90,80 L110,80 L110,120 L150,120 L150,60 L165,60 L165,45 L180,45 L180,60 L195,60 L195,120 L230,120 L230,100 L250,100 L250,120 L300,120 L300,70 L320,70 L320,120 L360,120 L360,20 L372,20 L372,8 L378,0 L384,8 L384,20 L396,20 L396,120 L430,120 L430,90 L450,90 L450,120 L480,120 L480,55 L500,55 L500,120 L540,120 L540,100 L560,100 L560,120 L600,120 L600,75 L615,75 L615,120 L650,120 L650,50 L665,50 L665,120 L700,120 L700,95 L720,95 L720,120 L760,120 L760,65 L780,65 L780,120 L820,120 L820,105 L840,105 L840,120 L880,120 L880,85 L900,85 L900,120 L940,120 L940,60 L955,60 L955,120 L1000,120 L1000,100 L1020,100 L1020,120 L1060,120 L1060,80 L1080,80 L1080,120 L1120,120 L1120,95 L1140,95 L1140,120 L1200,120 L1200,160 Z"/>
+      </svg>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow">
+        <svg class="leaf" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c.3 1.6.9 2.9 1.8 4 .3-.9.9-1.7 1.7-2.4-.1 1.2 0 2.3.4 3.3 1-.4 2-.6 3.1-.6-.8.8-1.3 1.7-1.6 2.7 1.1.1 2.2.5 3.1 1.1-1.1.4-2 1-2.7 1.8 1 .5 1.8 1.2 2.5 2.1-1.2 0-2.3.2-3.3.7.6.9 1 1.9 1.2 3-1-.6-2.1-.9-3.2-1 .1 1.1 0 2.2-.4 3.3-.6-.9-1.4-1.7-2.3-2.2-.1 1-.1 2.1.1 3.2-.8-.8-1.4-1.7-1.8-2.7L12 22l-.7-3.7c-.4 1-1 1.9-1.8 2.7.2-1.1.2-2.2.1-3.2-.9.5-1.7 1.3-2.3 2.2-.4-1.1-.5-2.2-.4-3.3-1.1.1-2.2.4-3.2 1 .2-1.1.6-2.1 1.2-3-1-.5-2.1-.7-3.3-.7.7-.9 1.5-1.6 2.5-2.1-.7-.8-1.6-1.4-2.7-1.8.9-.6 2-1 3.1-1.1-.3-1-.8-1.9-1.6-2.7 1.1 0 2.1.2 3.1.6.4-1 .5-2.1.4-3.3.8.7 1.4 1.5 1.7 2.4.9-1.1 1.5-2.4 1.8-4z"/></svg>
+        Canada Trip Planner
+      </p>
+      <h1 id="trip-title">Canada Trip 2026</h1>
+      <p id="trip-route" class="route"></p>
+      <p id="trip-dates" class="dates"></p>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="itinerary">Itinerary</button>
+    <button class="tab-btn" data-tab="documents">Documents</button>
+  </nav>
+
+  <main>
+    <section id="itinerary" class="tab-panel active">
+      <div id="day-list" class="day-list"></div>
+    </section>
+
+    <section id="documents" class="tab-panel">
+      <div class="doc-group">
+        <h2>✈️ Flights</h2>
+        <div id="flights-list" class="card-grid"></div>
+      </div>
+      <div class="doc-group">
+        <h2>🚆 Trains</h2>
+        <div id="trains-list" class="card-grid"></div>
+      </div>
+      <div class="doc-group">
+        <h2>🏨 Accommodation</h2>
+        <div id="accommodations-list" class="card-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Edit this trip anytime by updating <code>data.json</code> on GitHub — changes go live automatically.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

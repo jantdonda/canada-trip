@@ -1,0 +1,328 @@
+{
+  "trip": {
+    "name": "Canada Trip 2026",
+    "travelers": [
+      "José Antonio",
+      "Partner"
+    ],
+    "startDate": "2026-08-22",
+    "endDate": "2026-09-11",
+    "route": "Toronto → Niagara Falls (day trip) → Sudbury → Toronto → Montreal"
+  },
+  "documents": {
+    "flights": [
+      {
+        "id": "fl1",
+        "route": "Málaga (AGP) → Lisbon (LIS)",
+        "date": "2026-08-22",
+        "departTime": "07:00",
+        "arriveTime": "TBD",
+        "airline": "TBD",
+        "flightNumber": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      },
+      {
+        "id": "fl2",
+        "route": "Lisbon (LIS) → Toronto (YYZ)",
+        "date": "2026-08-22",
+        "departTime": "TBD",
+        "arriveTime": "02:30 (local, date to confirm)",
+        "airline": "TBD",
+        "flightNumber": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      },
+      {
+        "id": "fl3",
+        "route": "Montreal (YUL) → Lisbon (LIS)",
+        "date": "2026-09-10",
+        "departTime": "23:00",
+        "arriveTime": "TBD",
+        "airline": "TBD",
+        "flightNumber": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      },
+      {
+        "id": "fl4",
+        "route": "Lisbon (LIS) → Málaga (AGP)",
+        "date": "2026-09-11",
+        "departTime": "TBD",
+        "arriveTime": "TBD",
+        "airline": "TBD",
+        "flightNumber": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      }
+    ],
+    "trains": [
+      {
+        "id": "tr1",
+        "route": "Toronto → Montreal",
+        "date": "2026-09-07",
+        "departTime": "07:30",
+        "arriveTime": "TBD",
+        "operator": "TBD (likely VIA Rail)",
+        "trainNumber": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      }
+    ],
+    "accommodations": [
+      {
+        "id": "ac1",
+        "city": "Toronto",
+        "checkIn": "2026-08-22/23 (TBD)",
+        "checkOut": "2026-08-27",
+        "name": "TBD",
+        "address": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      },
+      {
+        "id": "ac2",
+        "city": "Sudbury",
+        "checkIn": "2026-08-27",
+        "checkOut": "2026-09-02",
+        "name": "TBD",
+        "address": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      },
+      {
+        "id": "ac3",
+        "city": "Toronto",
+        "checkIn": "2026-09-02",
+        "checkOut": "2026-09-07",
+        "name": "TBD",
+        "address": "TBD",
+        "confirmation": "TBD",
+        "status": "pending",
+        "notes": "Same hotel as first Toronto stay? confirm"
+      },
+      {
+        "id": "ac4",
+        "city": "Montreal",
+        "checkIn": "2026-09-07",
+        "checkOut": "2026-09-10",
+        "name": "TBD",
+        "address": "TBD",
+        "confirmation": "TBD",
+        "status": "pending"
+      }
+    ]
+  },
+  "days": [
+    {
+      "date": "2026-08-22",
+      "weekday": "Saturday",
+      "location": "In transit",
+      "activities": [
+        {
+          "time": "07:00",
+          "title": "Flight: Málaga (AGP) → Lisbon (LIS)",
+          "type": "flight",
+          "status": "pending",
+          "details": "Airline & flight number: TBD"
+        },
+        {
+          "time": "TBD",
+          "title": "Flight: Lisbon (LIS) → Toronto (YYZ)",
+          "type": "flight",
+          "status": "pending",
+          "details": "Arrival ~2:30 AM local time (date to confirm — may land Aug 23). Airline & flight number: TBD"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-23",
+      "weekday": "Sunday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-24",
+      "weekday": "Monday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-25",
+      "weekday": "Tuesday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-26",
+      "weekday": "Wednesday",
+      "location": "Toronto",
+      "activities": [
+        {
+          "time": "TBD",
+          "title": "Day trip: Niagara Falls",
+          "type": "activity",
+          "status": "pending",
+          "details": "Tour / transport / boat ride — TBD"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-27",
+      "weekday": "Thursday",
+      "location": "Toronto",
+      "activities": [
+        {
+          "time": "morning",
+          "title": "Travel: Toronto → Sudbury",
+          "type": "transport",
+          "status": "pending",
+          "details": "Mode of transport: TBD"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-28",
+      "weekday": "Friday",
+      "location": "Sudbury",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-29",
+      "weekday": "Saturday",
+      "location": "Sudbury",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-30",
+      "weekday": "Sunday",
+      "location": "Sudbury",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-08-31",
+      "weekday": "Monday",
+      "location": "Sudbury",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-01",
+      "weekday": "Tuesday",
+      "location": "Sudbury",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-02",
+      "weekday": "Wednesday",
+      "location": "Sudbury",
+      "activities": [
+        {
+          "time": "TBD",
+          "title": "Travel: Sudbury → Toronto",
+          "type": "transport",
+          "status": "pending",
+          "details": "Mode of transport: TBD"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-03",
+      "weekday": "Thursday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-04",
+      "weekday": "Friday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-05",
+      "weekday": "Saturday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-06",
+      "weekday": "Sunday",
+      "location": "Toronto",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-07",
+      "weekday": "Monday",
+      "location": "Toronto",
+      "activities": [
+        {
+          "time": "07:30",
+          "title": "Train: Toronto → Montreal",
+          "type": "train",
+          "status": "pending",
+          "details": "Operator & train number: TBD (likely VIA Rail)"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-08",
+      "weekday": "Tuesday",
+      "location": "Montreal",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-09",
+      "weekday": "Wednesday",
+      "location": "Montreal",
+      "activities": [],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-10",
+      "weekday": "Thursday",
+      "location": "Montreal",
+      "activities": [
+        {
+          "time": "23:00",
+          "title": "Flight: Montreal (YUL) → Lisbon (LIS)",
+          "type": "flight",
+          "status": "pending",
+          "details": "Airline & flight number: TBD"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "date": "2026-09-11",
+      "weekday": "Friday",
+      "location": "Montreal",
+      "activities": [
+        {
+          "time": "TBD",
+          "title": "Flight: Lisbon (LIS) → Málaga (AGP)",
+          "type": "flight",
+          "status": "pending",
+          "details": "Airline & flight number: TBD"
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}
