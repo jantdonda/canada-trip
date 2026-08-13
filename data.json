@@ -147,7 +147,22 @@
       "date": "2026-08-23",
       "weekday": "Sunday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "morning",
+          "title": "Get the keys from sis",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
+        },
+        {
+          "time": "TBD",
+          "title": "Hang out with Mich and James at the park",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "All day"
+        }
+      ],
       "notes": ""
     },
     {
