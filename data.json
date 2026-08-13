@@ -139,6 +139,13 @@
           "type": "flight",
           "status": "confirmed",
           "details": "TAP Air Portugal TP257 · Arrives 2:00 PM local time · Confirmation Y966FP"
+        },
+        {
+          "time": "20:00",
+          "title": "Dinner reservation at Valerie (Hotel X, 28th floor)",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "We lose the table if more than 15 min late"
         }
       ],
       "notes": ""
@@ -161,6 +168,13 @@
           "type": "activity",
           "status": "confirmed",
           "details": "All day"
+        },
+        {
+          "time": "11:00",
+          "title": "Rooftop at Hotel X",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
         }
       ],
       "notes": ""
