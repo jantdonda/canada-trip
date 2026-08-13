@@ -410,6 +410,13 @@
       "location": "Toronto",
       "activities": [
         {
+          "time": "daytime",
+          "title": "Visit a park — High Park, Riverdale, or Trinity Bellwoods",
+          "type": "activity",
+          "status": "pending",
+          "details": ""
+        },
+        {
           "time": "",
           "title": "CN Tower tour (if we haven't gone yet)",
           "type": "activity",
