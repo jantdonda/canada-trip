@@ -204,6 +204,20 @@
           "type": "activity",
           "status": "confirmed",
           "details": "Vessel: Toronto Odyssey · Cruise departs 7:00 PM · Queen's Quay Terminal, 207 Queen's Quay West, Toronto, ON M5J 1A7 · Confirmation 79883850"
+        },
+        {
+          "time": "12:00",
+          "title": "Lunch with Eunice",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
+        },
+        {
+          "time": "",
+          "title": "Potentially: CN Tower tour or drinks with Haley",
+          "type": "activity",
+          "status": "pending",
+          "details": ""
         }
       ],
       "notes": ""
@@ -212,7 +226,29 @@
       "date": "2026-08-25",
       "weekday": "Tuesday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "",
+          "title": "Lunch at Zia Lucy's",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
+        },
+        {
+          "time": "",
+          "title": "Pool day",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
+        },
+        {
+          "time": "19:30",
+          "title": "Drinks downtown with friends",
+          "type": "activity",
+          "status": "pending",
+          "details": "Rendezvous around 7-8pm"
+        }
+      ],
       "notes": ""
     },
     {
@@ -257,7 +293,7 @@
           "details": "By car, with family"
         }
       ],
-      "notes": ""
+      "notes": "Message Jessica to find a time to meet."
     },
     {
       "date": "2026-08-28",
@@ -285,7 +321,15 @@
       "date": "2026-08-30",
       "weekday": "Sunday",
       "location": "Sudbury",
-      "activities": [],
+      "activities": [
+        {
+          "time": "15:00",
+          "title": "Lake day — couples & kids over",
+          "type": "activity",
+          "status": "confirmed",
+          "details": "Tortilla, sweets from the bakery, and affogatos"
+        }
+      ],
       "notes": ""
     },
     {
@@ -305,22 +349,14 @@
     {
       "date": "2026-09-02",
       "weekday": "Wednesday",
-      "location": "Toronto",
-      "activities": [
-        {
-          "time": "TBD",
-          "title": "Travel: Sudbury → Toronto",
-          "type": "transport",
-          "status": "pending",
-          "details": "Likely by car with family (same as outbound) — please confirm"
-        }
-      ],
+      "location": "Sudbury",
+      "activities": [],
       "notes": ""
     },
     {
       "date": "2026-09-03",
       "weekday": "Thursday",
-      "location": "Toronto",
+      "location": "Sudbury",
       "activities": [],
       "notes": ""
     },
@@ -328,7 +364,22 @@
       "date": "2026-09-04",
       "weekday": "Friday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "TBD",
+          "title": "⚠️ Travel: Sudbury → Toronto (bus)",
+          "type": "transport",
+          "status": "pending",
+          "details": "Bus ticket not booked yet!"
+        },
+        {
+          "time": "",
+          "title": "Eaton Centre or Dundas Square",
+          "type": "activity",
+          "status": "pending",
+          "details": ""
+        }
+      ],
       "notes": ""
     },
     {
@@ -336,6 +387,13 @@
       "weekday": "Saturday",
       "location": "Toronto",
       "activities": [
+        {
+          "time": "11:00",
+          "title": "Visit Sara and her new baby",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
+        },
         {
           "time": "19:30",
           "title": "Concert: Rüfüs Du Sol",
@@ -350,7 +408,22 @@
       "date": "2026-09-06",
       "weekday": "Sunday",
       "location": "Toronto",
-      "activities": [],
+      "activities": [
+        {
+          "time": "",
+          "title": "CN Tower tour (if we haven't gone yet)",
+          "type": "activity",
+          "status": "pending",
+          "details": ""
+        },
+        {
+          "time": "18:00",
+          "title": "Potential early dinner with Zia at Lalibela's",
+          "type": "activity",
+          "status": "pending",
+          "details": ""
+        }
+      ],
       "notes": ""
     },
     {
@@ -366,7 +439,7 @@
           "details": "Route 60 · Arrives 11:50 AM (5h18m) · Reservation 8SOM3S"
         }
       ],
-      "notes": ""
+      "notes": "Potentially see Tuan's new clinic."
     },
     {
       "date": "2026-09-08",
