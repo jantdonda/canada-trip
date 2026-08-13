@@ -175,6 +175,20 @@
           "type": "activity",
           "status": "confirmed",
           "details": ""
+        },
+        {
+          "time": "afternoon",
+          "title": "Chill with Mich — daytime options",
+          "type": "activity",
+          "status": "pending",
+          "details": "St. Lawrence Market or the Distillery District · Cafe X (latte flights) · or Stackt Market"
+        },
+        {
+          "time": "night",
+          "title": "Maybe drinks with Haley at Ruby Soho",
+          "type": "activity",
+          "status": "pending",
+          "details": "Spontaneous — only if we still have energy"
         }
       ],
       "notes": ""
