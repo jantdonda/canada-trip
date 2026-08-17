@@ -178,10 +178,10 @@
         },
         {
           "time": "afternoon",
-          "title": "Chill with Mich — daytime options",
+          "title": "Day with Mich and James — King St., The Well, and STACKT Market",
           "type": "activity",
-          "status": "pending",
-          "details": "St. Lawrence Market or the Distillery District · Cafe X (latte flights) · or Stackt Market"
+          "status": "confirmed",
+          "details": ""
         },
         {
           "time": "night",
@@ -189,6 +189,13 @@
           "type": "activity",
           "status": "pending",
           "details": "Spontaneous — only if we still have energy"
+        },
+        {
+          "time": "sunset",
+          "title": "Sunset hour at Riverdale Park",
+          "type": "activity",
+          "status": "confirmed",
+          "details": ""
         }
       ],
       "notes": ""
